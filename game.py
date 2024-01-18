@@ -4,7 +4,7 @@ class TicTacToe:
         self.current_player = "X"
 
     def initialize_board(self):
-        """Initialize the Tic-Tac-Toe board."""
+        
         return [
             [" ", " ", " "],
             [" ", " ", " "],
@@ -12,13 +12,13 @@ class TicTacToe:
         ]
 
     def display_board(self):
-        """Display the current state of the Tic-Tac-Toe board."""
+        
         for row in self.board:
             print("|".join(row))
             print("-" * 5)
 
     def get_player_input(self):
-        """Take a single input from the player representing the position on the board."""
+        
         while True:
             try:
                 position = int(input("Enter a number between 1 and 9 to place your symbol: "))
@@ -37,15 +37,15 @@ class TicTacToe:
                 print("Invalid input. Please enter a numeric value.")
 
     def make_move(self, row, col):
-        """Make a move on the Tic-Tac-Toe board."""
+        
         self.board[row][col] = self.current_player
 
     def switch_player(self):
-        """Switch players for the next turn."""
+       
         self.current_player = "O" if self.current_player == "X" else "X"
 
     def check_winner(self):
-        """Check if the current player has won."""
+        
         # Check rows, columns, and diagonals for three consecutive symbols
         for i in range(3):
             if all(self.board[i][j] == self.current_player for j in range(3)) or \
@@ -57,11 +57,11 @@ class TicTacToe:
         return False
 
     def is_draw(self):
-        """Check if the game is a draw."""
+        
         return all(cell != " " for row in self.board for cell in row)
 
     def play_game(self):
-        """Run the main game loop."""
+        
         while True:
             self.display_board()
             row, col = self.get_player_input()
